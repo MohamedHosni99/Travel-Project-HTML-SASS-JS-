@@ -1,0 +1,752 @@
+//Import Mixins
+@use'./sass/helpers/mixins' as *;
+
+//Import Variables
+@use'./sass/helpers/variabels' as *;
+
+//Import Global Rules
+@use'./sass/layout/global-rules';
+
+// Start Components
+
+.heading{
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    span{
+        color: $blue;
+        font-size: 2rem;
+    }
+    
+    h1{
+        font-size: 3rem;
+        color:$white;
+    }
+
+
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    font-size: 1.7rem;
+    color: $blue;
+    border:$border;
+    border-radius: 5rem;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    &:hover{
+        background-color: $blue;
+        color: $black;
+    }
+}
+// End Components 
+
+
+
+// Start Header 
+.header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: $bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 9%;
+    .logo{
+        font-size: 2.5rem;
+        color: $white;
+        font-weight: bolder;
+        i{
+            color: $blue;
+            padding-right: 1.5rem;
+        }
+    }
+    .navbar a{
+        font-size: 1.5rem;
+        color: $light-color;
+        margin: 0 10px;
+        display: inline-block;
+        &.active,
+        &:hover{
+            color: $blue;
+        }
+    }
+    #menu-btn{
+        color: $white;
+        cursor: pointer;
+        font-size: 2.5rem;
+        display: none;
+    }
+}
+
+// End Header
+
+
+// Start Home
+
+.home{
+    margin: 9rem auto 0;
+    width: 90%;
+    min-height: 80vh;
+    border-radius: 1rem;
+    background-image: url("./images/home-bg.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:5rem ;
+    .content{
+        text-align: center;
+        z-index: 2;
+        
+        span{
+            font-weight: bolder;
+            color: transparent;
+            -webkit-text-stroke: .1rem $white;
+            font-size: 5vw;
+            display: block;
+        }
+        
+        h3{
+            font-size: 4vw;
+            color: $white;
+        }
+        
+        p{
+            max-width:100% ;
+            font-size: 1.4rem;
+            color: $light-color;
+            line-height: 2;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1111119d;
+    }
+}
+
+
+
+
+
+.book-form{
+    width: 80%;
+    margin: -5rem auto 1rem;
+    background-color: $bg-color;
+    border-radius: 1rem;
+    box-shadow: 0 .5rem 1rem;
+    box-shadow: 0 .5rem 1rem rgba(17,17,17,.3);
+    position: relative;
+    z-index: 3;
+    padding: 3rem 2rem;
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        align-items: flex-end;
+        
+        .input-box{
+            flex: 1 1 25rem;
+            
+            span{
+                color: $light-color;
+                font-size: 1.4rem;
+            }
+            
+            input{
+                width: 100%;
+                padding:1.2rem 1.4rem;
+                border-radius: 5rem;
+                border:$border;
+                font-size: 1.6rem;
+                color:$light-color;
+                text-transform: none;
+                background: none;
+                margin-top: 1rem;
+            }
+        }
+        .btn{
+            flex: 1 1 15rem;
+        }
+
+    }
+}
+// End Home
+
+
+// Start About
+.about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 5rem;
+    .video-container{
+        flex: 1 1 42rem;
+        
+        video{
+            border-radius: 1rem;
+            width: 100%;
+        }
+        .controls{
+            text-align: center;
+            padding: 2rem 0;
+
+            span{
+                display: inline-block;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 50%;
+                background: $white;
+                cursor: pointer;
+                margin: .7rem;
+
+                &:hover,
+                &.active{
+                    background: $blue;
+                }
+            }
+
+        }
+    }
+
+    .content{
+        flex:1 1 42rem;
+        margin-bottom: 5rem;
+
+        span{
+            color: $blue;
+            font-size: 2rem;
+        }
+        
+        h3{
+            color: $white;
+            font-size: 3rem;
+            margin-top: .5rem;
+        }
+
+        p{
+            padding: 1rem 0 ;
+            font-size: 1.4rem;
+            color: $light-color;
+            line-height: 2;
+        }
+    }
+}
+// End About
+
+
+// Start Destination
+.destination{
+    .box-container{
+        @include grid(27rem);
+        
+        .box{
+            border-radius: 1rem;
+            overflow: hidden;
+            background: $bg-color;
+        
+            &:hover img{
+                transform: scale(1.1);
+            }
+            .image{
+                height: 20rem;
+                overflow: hidden;
+                width: 100%;
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: .3s;
+                }
+            }
+            .content{
+                text-align: center;
+                padding: 2rem;
+                
+                h3{
+                    font-size: 2rem;
+                    color: $white;
+                }
+
+                p{
+                    padding: 1rem 0 ;
+                    font-size: 1.4rem;
+                    color: $light-color;
+                    line-height: 2;
+                }
+
+                a{
+                    font-size:1.7rem ;
+                    color: $blue;
+                    
+                    &:hover i{
+                        padding-left: 1rem;
+                    }
+                    
+                    i{
+                        padding-right:.5rem;
+                        transition: .3s;
+                    }
+
+                }
+            }
+        }
+    }
+}
+// End Destination
+
+// Start Services
+.services{
+    .box-container{
+        @include grid(32rem);
+        
+        .box{
+            padding: 3rem 2rem;
+            text-align: center;
+            background-color: $bg-color;
+            border-radius: 1rem;
+            border: .2rem solid $black;
+            transition: .3s;
+            &:hover {
+                border-color: $blue;
+            }
+            i{
+                font-size: 4rem;
+                color: $blue;
+                margin-bottom: 1rem;
+            }
+            
+            h3{
+                font-size: 2rem;
+                color: $white;
+            }
+            
+            p{
+                padding: 1rem 0 ;
+                font-size: 1.4rem;
+                color: $light-color;
+                line-height: 2;
+            }
+        }
+    }
+}
+// End Services
+
+// Start Gallery
+.gallery{
+    
+    .box-container{
+        columns: 3 25rem;
+        column-gap: 1.5rem;
+        
+        .box{
+            margin-bottom: 1rem;
+            break-inside: avoid;
+            
+            img{
+                width: 100%;
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            span{
+                font-size: 1.4rem;
+                color:$light-color;
+            }
+            
+            h3{
+                margin-top: .5rem;
+                font-size: 2rem;
+                color:$white;
+            }
+        }
+
+    }
+}
+// End Gallery
+
+// Start Reviews 
+.review{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:2rem;
+
+    .content{
+        flex: 1 1 42rem;
+
+        span{
+            font-size: 2rem;
+            color:$blue;
+        }
+
+        h3{
+            font-size: 3rem;
+            color:$white;
+        }
+
+        p{
+            font-size: 1.4rem;;
+            color:$light-color;
+            padding:1rem 0;
+            line-height: 2;
+        }
+    }
+
+    .box-container{
+        flex: 1 1 42rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap:1.5rem;
+
+        .box{
+            flex:1 1 20rem;
+            border-radius: 1rem;
+            padding:2rem;
+            background: $bg-color;
+            border:.2rem solid $black;
+            transition: .3s;
+
+            &:hover{
+                border:$border;
+            }
+
+            p{
+                font-size: 1.4rem;
+                padding-bottom: 1rem;
+                line-height: 2;
+                color:$light-color;
+            }
+
+            .user{
+                display: flex;
+                align-items: center;
+                gap:1rem;
+
+                img{
+                    height: 5rem;
+                    width: 5rem;
+                    border-radius: 50%;
+                }
+
+                h3{
+                    font-size: 1.7rem;
+                    color:$white;
+                }
+
+                span{
+                    color:$light-color;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+// End Reviews 
+
+// Start Blog
+.blogs{
+    
+    .box-container{
+        @include grid(32rem);
+        
+        .box{
+            border-radius: 1rem;
+            background-color: $bg-color;
+            overflow: hidden;
+            &:hover{
+                
+                .image img{
+                    transform: scale(1.1);
+                }
+            }
+            
+            .image{
+                height: 25rem;
+                overflow: hidden;
+                width: 100%;
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: .3s;
+                }
+            }
+
+            .content{
+                padding: 2rem;
+                
+                .link{
+                    font-size: 1.85rem;
+                    color: $white;
+                    transition: .3s;
+                    &:hover{
+                        color: $blue;
+                    }
+                }
+                
+                p{
+                    padding: 1rem 0 ;
+                    font-size: 1.4rem;
+                    color: $light-color;
+                    line-height: 2;
+                }
+                
+                .icon{
+                    padding-top: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+                    a{
+                        font-size: 1.4rem;
+                        color: $light-color;
+                        transition: .3s;
+                        &:hover{
+                            color: $blue;
+                        }
+
+                        i{
+                            padding-right: .5rem;
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+// End Blog
+
+// Start Banner
+.banner{
+    background:linear-gradient($black-bg, $black-bg), url(../images/banner-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding:3rem 2rem;
+    background-attachment: fixed;
+    text-align: center;
+
+    .content{
+        
+        span{
+            font-size: 2rem;
+            color:$blue;
+        }
+
+        h3{
+            font-size: 4rem;
+            color:$white;
+            margin-top: 1rem;
+        }
+
+        p{
+            max-width: 60rem;
+            margin:1rem auto;
+            font-size: 1.4rem;
+            color:$light-color;
+            line-height: 2;
+        }
+    }
+}
+
+// End Banner 
+
+// Start Footer 
+.footer{
+    .box-container{
+        @include grid(25rem);
+        
+        .box{
+            padding: 1rem 0;
+            
+            h3,.logo{
+                font-size: 2.2rem;
+                color: $white;
+                padding: 1rem 0;
+                i{
+                    color: $blue;
+                    padding-right: 1.5rem;
+                }
+            }
+            
+            p{
+                font-size: 1.4rem;
+                color: $light-color;
+                padding: 1rem 0;
+                line-height: 2;
+                
+                i{
+                    padding-right: .5rem;
+                    color: $blue;
+                }
+            }
+            .social{
+                padding-top: 1rem;
+                
+                a{
+                    height: 4.5rem;
+                    width: 4.5rem;
+                    color: $blue;
+                    border-radius: 50%;
+                    line-height: 4rem;
+                    font-size: 1.7rem;
+                    border: $border;
+                    margin-right: .5rem;
+                    text-align: center;
+                    transition: .3s;
+                    &:hover{
+                        background-color: $blue;
+                        color: $black;
+                    }
+                }
+                
+            }
+            
+            .links{
+                font-size: 1.4rem;
+                color: $light-color;
+                padding: 1rem 0;
+                display: block;
+                transition: .3s;
+                
+                &:hover{
+                    color: $blue;
+                    
+                    i{
+                        padding-right: 1rem;
+                    }
+                    
+                }
+                
+                i{
+                    padding-right: .5rem;
+                    color: $blue;
+                }
+            }
+            
+            form .email{
+                width: 100%;
+                border-radius: 5rem;
+                border:$border;
+                background: none;
+                font-size: 1.5rem;
+                text-transform: none;
+                color:$light-color;
+                margin-bottom: 1rem;
+                padding:1.2rem 1.4rem;
+                caret-color: $blue;
+            }
+
+        }
+    }
+}
+
+
+.credit{
+    background-color: $bg-color;
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem 1rem;
+    color: $light-color;
+    span{
+        color: $blue;
+    }
+}
+// End Footer 
+
+// media queries 
+
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 1.5rem 2rem;
+    }
+    section{
+        padding: 3rem 2rem;
+    }
+}
+
+@media(max-width:768px){
+    .header {
+        #menu-btn{
+            display: inline-block;
+        }
+        .navbar{
+            position: absolute;
+            top: 99%;
+            left: 0;
+            right: 0;
+            background-color: $bg-color;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            &.active{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            a{
+                margin: 2rem;
+                font-size: 2rem;
+                display: block;
+                padding: 5px 0;
+                position: relative;
+                &:not(:nth-of-type(7))::before{
+                    content: '';
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    height: 2px;
+                    width: 100px;
+                    background-color: $blue;
+                }
+            }
+        }
+    }
+    .home{
+        margin-top: 10rem;
+        .content{
+            span{
+                font-size: 8vw;
+            }
+            h3{
+                font-size: 9vw;
+            }
+        }
+    }
+}
+
+
+@media(max-width:450px){
+    html{
+        font-size: 50%;
+    }
+
+    .about{
+        .content{
+            h3{
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .banner .content h3{
+        font-size: 2.7rem;
+    }
+}
